@@ -19,9 +19,10 @@ check:
 	clang-format -n *.c *.h
 
 format:
-	clang-format -n *.c *.h
+	clang-format -i *.c *.h
 
 clean: 
 	rm -rf *.o
-	rm -rf s21_grep
+		rm -rf s21_grep
+	rm -rf ./test_grep/s21_grep
 	rm -rf .clang-format

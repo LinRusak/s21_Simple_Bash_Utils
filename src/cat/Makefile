@@ -21,9 +21,6 @@ check:
 format:
 	clang-format -i *.c *.h
 
-test:
-	bash ./test_cat/test_func_cat.sh
-
 clean: 
 	rm -rf *.o
 		rm -rf s21_cat
