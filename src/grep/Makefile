@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror  -std=c11 -pedantic
 
 all : s21_grep
 
@@ -23,6 +23,6 @@ format:
 
 clean: 
 	rm -rf *.o
-		rm -rf s21_grep
+	rm -rf s21_grep
 	rm -rf ./test_grep/s21_grep
 	rm -rf .clang-format

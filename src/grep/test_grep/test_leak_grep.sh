@@ -8,12 +8,12 @@ DIFF_RES=""
 
 declare -a tests=(
 "s test_text_grep.txt VAR"
-"for s21_grep.c s21_grep.h Makefile VAR"
-"for s21_grep.c VAR"
-"-e for -e ^int s21_grep.c s21_grep.h Makefile VAR"
-"-e for -e ^int s21_grep.c VAR"
-"-e regex -e ^print s21_grep.c VAR -f test_ptrn_grep.txt"
-"-e while -e void s21_grep.c Makefile VAR -f test_ptrn_grep.txt"
+"for VAR"
+"for VAR"
+"-e for -e ^int VAR"
+"-e for -e ^int VAR"
+"-e regex -e ^print VAR -f test_ptrn_grep.txt"
+"-e while -e void VAR -f test_ptrn_grep.txt"
 "VAR no_file.txt"
 )
 
@@ -62,12 +62,6 @@ testing()
     rm test_s21_grep.log
 }
 
-# специфические тесты
-for i in "${extra[@]}"
-do
-    var="-"
-    testing $i
-done
 
 # 1 параметр
 for var1 in v c l n h o

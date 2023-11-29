@@ -115,9 +115,9 @@ void print_flag_o(char *buff, Flags flags) {
         printf("%c", res[i]);
       }
       printf("\n");
-      buff += len;  // move pointer to next position
+      buff += len;
     } else {
-      buff++;  // move pointer to the next charcter
+      buff++;
     }
   }
 }
@@ -125,8 +125,6 @@ void print_flag_o(char *buff, Flags flags) {
 int work_whith_args(char *argv[], int argc, Flags flags) {
   int file_string_num = optind;
   regex_t regex;
-
-  // printf("%s", flags.pattern);
 
   if (!flags.e && !flags.f) {
     file_string_num++;
@@ -136,11 +134,10 @@ int work_whith_args(char *argv[], int argc, Flags flags) {
   if (flags.o || flags.f || flags.e)
     regcomp(&regex, flags.pattern, REG_EXTENDED);
   if (flags.i) regcomp(&regex, flags.pattern, REG_ICASE);
-  // printf("num of fiele:%d\n", argc - file_string_num);
+
   if (argc - file_string_num > 1) flags.file_name_flag += 1;
 
   for (int i = file_string_num; i < argc; i++) {
-    // printf("%s\n", flags.pattern);
     sprintf(flags.file_name, "%s", argv[i]);
     search(&regex, flags);
   }
@@ -166,35 +163,34 @@ void search(regex_t *regex, Flags flags) {
 
       res_search = regexec(regex, logics.buff, 0, NULL, 0);
 
-      if (flags.v && !flags.o) {  // V flag regex
+      if (flags.v && !flags.o) {
         res_search = !res_search;
       }
 
       if (!res_search) {
         logics.count_c++;
 
-        if (flags.file_name_flag && !flags.h && !flags.l &&
-            !flags.c) {  // H flag
+        if (flags.file_name_flag && !flags.h && !flags.l && !flags.c) {
           printf("%s:", flags.file_name);
           logics.file_print++;
         }
 
         if (flags.file_name_flag && !flags.h && !flags.l && flags.c &&
-            !logics.file_print) {  // H flag logics.file_print
+            !logics.file_print) {
           printf("%s:", flags.file_name);
           logics.file_print++;
         }
 
-        if (flags.l && !flags.c && !logics.l_print) {  // L flag
+        if (flags.l && !flags.c && !logics.l_print) {
           printf("%s\n", flags.file_name);
           logics.l_print++;
         }
 
-        if (flags.n && !flags.c && !flags.l) {  // N flag
+        if (flags.n && !flags.c && !flags.l) {
           printf("%d:", logics.count_n);
         }
 
-        if (!flags.c && flags.o && !flags.l) {  // O flag
+        if (!flags.c && flags.o && !flags.l) {
           print_flag_o(logics.buff, flags);
         }
 
@@ -210,7 +206,7 @@ void search(regex_t *regex, Flags flags) {
       printf("%s:", flags.file_name);
       logics.file_print++;
     }
-    if (!logics.c_print && flags.c && !flags.l) {  // C flag!
+    if (!logics.c_print && flags.c && !flags.l) {
       printf("%d\n", logics.count_c);
       logics.c_print = 1;
     }
