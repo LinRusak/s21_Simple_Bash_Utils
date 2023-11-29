@@ -18,9 +18,6 @@ typedef struct {
   bool v;
 } Flags;
 
-// int parse_params(int argc, char **argv, char *short_options,
-//               struct option long_options[], config *conf);
-
 void print_file(FILE *fp, Flags flags);
 
 void print_line(char *line, int line_num, Flags flags, FILE *fp);

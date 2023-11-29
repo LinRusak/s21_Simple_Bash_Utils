@@ -19,8 +19,13 @@ check:
 	clang-format -n *.c *.h
 
 format:
-	clang-format -n *.c *.h
+	clang-format -i *.c *.h
+
+test:
+	bash ./test_cat/test_func_cat.sh
 
 clean: 
 	rm -rf *.o
+		rm -rf s21_cat
+	rm -rf ./test_cat/s21_cat
 	rm -rf .clang-format
