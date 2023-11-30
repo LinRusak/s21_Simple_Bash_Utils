@@ -21,6 +21,9 @@ check:
 format:
 	clang-format -i *.c *.h
 
+test:
+	sh test_grep/test_func_grep.sh
+
 clean: 
 	rm -rf *.o
 	rm -rf s21_grep

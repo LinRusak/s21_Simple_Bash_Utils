@@ -6,7 +6,7 @@
 #include <string.h>
 #include <unistd.h>
 
-#define SIZE 5000
+#define SIZE 10000
 const char *error =
     "usage: grep [-e:ivclnhs] [-A num] [-B num] "
     "[-C[num]]\n\t[-e pattern] [-f file] [--binary-files=value] "

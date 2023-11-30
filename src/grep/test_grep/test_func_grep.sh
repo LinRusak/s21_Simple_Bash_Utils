@@ -1,8 +1,8 @@
 COUNTER_SUCCESS=0
 COUNTER_FAIL=0
 DIFF_RES=""
-TEST_FILE1="test1.txt"
-TEST_FILE2="test2.txt"
+TEST_FILE1="./test_grep/test1.txt"
+TEST_FILE2="./test_grep/test2.txt"
 PATTERN_FILE="reg_exmpl.txt"
 GREP_FILE="./s21_grep"
 arguments=(i v c l n h s o)

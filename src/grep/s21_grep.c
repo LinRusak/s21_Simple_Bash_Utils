@@ -133,8 +133,9 @@ int work_whith_args(char *argv[], int argc, Flags flags) {
   }
   // if (flags.o || flags.f || flags.e)
   //   regcomp(&regex, flags.pattern, REG_EXTENDED);
-  // if (flags.i) 
-  regcomp(&regex, flags.pattern, flags.i ? (REG_EXTENDED|REG_ICASE) : REG_EXTENDED);
+  // if (flags.i)
+  regcomp(&regex, flags.pattern,
+          flags.i ? (REG_EXTENDED | REG_ICASE) : REG_EXTENDED);
 
   if (argc - file_string_num > 1) flags.file_name_flag += 1;
 
